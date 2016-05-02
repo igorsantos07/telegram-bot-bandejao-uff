@@ -6,8 +6,10 @@ token = '134789758:AAGf6KYr4B8SOzlsxl7OAOpnGwTZewB1s54'
 
 Telegram::Bot::Client.run(token) do |bot|
   bot.listen do |message|
+    puts "ouvindo..."
     case message.text
     when '/help'
+      puts "help"
       bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}")
       bot.api.send_message(chat_id: message.chat.id, text: "vou te apresentar alguns comandos:")
       bot.api.send_message(chat_id: message.chat.id, text: "/help - mostra todos os comandos")
@@ -15,6 +17,7 @@ Telegram::Bot::Client.run(token) do |bot|
     when '/email'
       bot.api.send_message(chat_id: message.chat.id, text: "Em breve retornaremos email dos profesores.")
     when '/cardapio'
+      puts "cardapio"
       begin
         doc = Nokogiri::XML(open("http://www.restaurante.uff.br/cardapiomobile.xml"))
         bot.api.send_message(chat_id: message.chat.id, text: "Prato principal - #{doc.xpath("//node//Prato-principal").to_s.sub("<Prato-principal>","").sub("</Prato-principal>","")}")
