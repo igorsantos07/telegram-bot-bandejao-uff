@@ -13,9 +13,9 @@ Telegram::Bot::Client.run(token) do |bot|
       bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}")
       bot.api.send_message(chat_id: message.chat.id, text: "vou te apresentar alguns comandos:")
       bot.api.send_message(chat_id: message.chat.id, text: "/help - mostra todos os comandos")
-      bot.api.send_message(chat_id: message.chat.id, text: "/cardapio - retorna o cardapio do bandeijão!")
+      bot.api.send_message(chat_id: message.chat.id, text: "/cardapio - retorna o cardapio do bandejão!")
     when '/email'
-      bot.api.send_message(chat_id: message.chat.id, text: "Em breve retornaremos email dos profesores.")
+      bot.api.send_message(chat_id: message.chat.id, text: "Em breve retornaremos email dos professores.")
     when '/cardapio'
       puts "cardapio"
       begin
